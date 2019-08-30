@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+
+	</style>
+</head>
+<body>
+
+	<form method="post" action="" id="form1">
+		<div> 
+
+			<label>Username</label>
+			<input type="text" id="input1" name="username">
+			<br>
+			
+		</div>	
+		<br><br>
+		<div>
+
+			<label>Password</label>
+			<input type="password" id="input2" name="password" >
+			<br><br>
+			<span id="one" style='color:red'> </span>
+
+		</div>
+		<br><br>
+
+		<input type="button" id="btn1" value="Validate Form">
+	</form>
+
+	
+
+</body>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script>
+		
+		$(document).ready(function(){
+			$('#btn1').click(function(){
+				var a=$("#input1").val();
+				var b=$('#input2').val();
+
+			 if((a.trim()=="") && (b.trim()=="")){
+				$("#input1").css('border-color','red');
+				$('#input2').css('border-color', 'red');
+				$("#one").html('* These fields are Required');
+			}
+
+
+			else if(a.trim()==""){
+				$("#input1").css('border-color','red');
+				$("#one").html('* Your username is Required');
+			}
+			else if(b.trim()==""){
+				$('#input2').css('border-color', 'red');
+				$('#one').html('*Your password is Required')
+			}
+			
+			else{
+				$("#input1").css('border-color','blue');
+				$('#input2').css('border-color','blue');
+				alert($("#form1").serialize());
+			}
+			})
+		})
+
+</script>
+</html>
